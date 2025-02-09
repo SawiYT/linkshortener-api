@@ -1,19 +1,7 @@
 import { Request, Response } from 'express';
-import { Controller, db, links } from '../utils/settings';
+import { Controller, db, Link, links } from '../utils/settings';
 import { v4 as uuidv4 } from 'uuid';
 import { PORT } from '..';
-
-class Link {
-	creator: string;
-	uuid: string;
-	url: string;
-
-	constructor(creator: string, uuid: string, url: string) {
-		this.creator = creator;
-		this.uuid = uuid;
-		this.url = url;
-	}
-}
 
 export function loadLinksFromDatabase() {
 	db.query('SELECT * FROM links', (err, results: any) => {
